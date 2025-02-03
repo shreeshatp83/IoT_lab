@@ -1,0 +1,19 @@
+sudo apt update
+sudo apt upgrade
+sudo apt install mariadb-server-10.0 mariadb-client-10.0
+sudo apt-get install python-mysqldb
+
+sudo mysql_secure_installation
+sudo mysql -u root -p
+
+CREATE DATABASE exampledb;
+CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'pimylifeup';
+USE exampledb;
+CREATE TABLE Sensorstats (
+    date_time VARCHAR(50),
+    irsensorstat FLOAT
+);
+
+GRANT ALL PRIVILEGES ON exampledb.* TO 'exampleuser'@'localhost';
+
+FLUSH PRIVILEGES;
